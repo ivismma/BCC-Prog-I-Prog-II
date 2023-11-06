@@ -11,8 +11,6 @@ Será impresso "boaprova!"
 
 (c) Mostre o que será impresso se o usuário entrar com os valores: 50 bom dia, como vai?
 
-Será impresso "bomdia,comovai?"
-
 */
 
 #include <stdio.h>
@@ -22,6 +20,10 @@ Será impresso "bomdia,comovai?"
 //   1 0   b o a 
 //i  0 1 2 2 3 4 
 //j  0 1 2 3 4 5 
+
+// Concluí que o código pausa a acumulação do i quando encontra espaços, fazendo com que remova os espaços na string final.
+// Pois --> linha 43: *(frase + i) = *(frase + j); //
+// R: Será impresso "bomdia,comovai?"
 
 int main() {
     char* frase; int n;
