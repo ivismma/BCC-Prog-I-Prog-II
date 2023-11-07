@@ -13,7 +13,7 @@ retorna o total de LEDS necessários para reproduzi-lo no painel.*/
 dígito (isto é, um algarismo entre 0 e 9), e retorna o total de LEDs necessários
 para aquele único dígito.*/
 
-int ledsAlgarismo(int a){
+int ledsAlgarismo(int a){ // Infelizmente não existe uma maneira mais otimizada de fazer essas verificações.
 	if(a == 6 || a == 8 || a == 9 || a == 0)
 		return 6;
 	else if(a == 2 || a == 3 || a == 5)
@@ -36,7 +36,7 @@ int totalLEDS(int n){
 }
 
 int main(){
-	int n, res;
+	int n, res; // res = resultado.
 	
 	printf("Qual o número desejado do LED? --> ");
 	scanf("%d", &n);
