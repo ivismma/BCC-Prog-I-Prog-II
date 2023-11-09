@@ -20,13 +20,16 @@ Saída: Seu programa deve imprimir na saída padrão uma única linha contendo u
 Obs.: Para ler as cadeias de caracteres use o formato %s
 */
 
+#define FALSE 0
+#define TRUE 1
 #include <stdio.h>
 #include <string.h>
 
-void verificaResp(int v[], int n){ // Verifica se as alternativas selecionadas estão entre 'A' e 'E', e ao mesmo tempo, se não é maiúscula.
+int verificaResp(char v[], int n){ // Verifica se as alternativas selecionadas estão entre 'A' e 'E', e ao mesmo tempo, se não é maiúscula.
 	for(int i = 0; i < n; ++i)
 		if(v[i] < 'A' || v[i] > 'E')
-			return -1; // Retorna -1 caso não respeite os requisitos.
+			return FALSE; // Retorna -1 caso não respeite os requisitos.
+	return TRUE;
 }
 
 int contabilizaAcertos(char resp[], char gabarito[], int n){
@@ -42,11 +45,14 @@ int main(){
 	do {scanf("%d", &n);} while(n < 1 || n > 80);
 	char resp[n], gabarito[n];
 
+	// Retorna -1 se uma das entradas for inválida.
 	scanf("%s", gabarito);
-    verificaResp(gabarito,n); 
+    if(!verificaResp(gabarito,n))
+    	return -1;
    
     scanf("%s", resp);
-    verificaResp(resp,n); 
+    if(!verificaResp(resp,n))
+    	return -1;
     
 	acertos = contabilizaAcertos(resp, gabarito, n);
 	printf("%d", acertos);
