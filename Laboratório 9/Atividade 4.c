@@ -1,15 +1,15 @@
 /*
 Atividade 4:
 Crie um novo tipo de dados para representar uma Pessoa com os campos idade e peso.
-Agora, implemente uma funÁ„o que, dado um vetor de Pessoas, ordene esse vetor em
+Agora, implemente uma fun√ß√£o que, dado um vetor de Pessoas, ordene esse vetor em
 ordem decrescente de idade e imprima o vetor ordenado na tela.
-Finalmente, implemente a funÁ„o main, onde um vetor de Pessoas (m·ximo de 50) dever·
-ser preenchido pelo usu·rio e em seguida ordenado (chamando a funÁ„o definida
+Finalmente, implemente a fun√ß√£o main, onde um vetor de Pessoas (m√°ximo de 50) dever√°
+ser preenchido pelo usu√°rio e em seguida ordenado (chamando a fun√ß√£o definida
 anteriormente).
 */
 
 #include <stdio.h>
-#define TAM 5
+#define TAM 50
 #define FALSE 0
 #define TRUE 1
 
@@ -18,15 +18,15 @@ typedef struct{
 	int idade;
 } TPessoa;
 
-void ordenaVetor(int v[]){ // Algoritmo de ordenaÁ„o: Bubble sort
+void ordenaVetor(int v[]){ // Algoritmo de ordena√ß√£o: Bubble sort
 	const int FALSO = FALSE, VERDADEIRO = TRUE;
 	int ordenado = FALSO; //Flag (indicador)
-	int fim = TAM; //n È o tamanho do vetor.
-		while (!ordenado) { //Uso da flag evita redund‚ncia!
+	int fim = TAM; //n √© o tamanho do vetor.
+		while (!ordenado) { 
 		ordenado = VERDADEIRO;
 		for (int i = 0; i < fim - 1; i++) {
 			if (v[i] > v[i+1]) {
-				//Permutamos os valores de A[i] e A[i+1]:
+			
 				int aux = v[i];
 				v[i] = v[i + 1];
 				v[i + 1] = aux;
@@ -59,7 +59,7 @@ int main(){
 	int idade[TAM], idadeDec[TAM];
 	
 	for(int i = 0;i < TAM;i++){
-		printf("Pessoa %d - Insira separado por espaÁo o idade e peso, respectivamente: ", i+1);
+		printf("Pessoa %d - Insira separado por espa√ßo o idade e peso, respectivamente: ", i+1);
 		scanf("%d %d", &pessoa[i].idade, &pessoa[i].peso);
 	} preencheVetor(pessoa, idade);
 	
