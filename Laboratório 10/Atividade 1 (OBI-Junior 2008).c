@@ -23,10 +23,11 @@ Obs.: Para ler as cadeias de caracteres use o formato %s
 #include <stdio.h>
 #include <string.h>
 
-void verificaResp(int v[], int n) // Verifica se as alternativas selecionadas estão entre 'A' e 'E', e ao mesmo tempo, se não é maiúscula.
+void verificaResp(int v[], int n){ // Verifica se as alternativas selecionadas estão entre 'A' e 'E', e ao mesmo tempo, se não é maiúscula.
 	for(int i = 0; i < n; ++i)
-		if(v[i] < 'A' || v[i] 'E')
+		if(v[i] < 'A' || v[i] > 'E')
 			return -1; // Retorna -1 caso não respeite os requisitos.
+}
 
 int contabilizaAcertos(char resp[], char gabarito[], int n){
     int cont = 0;
