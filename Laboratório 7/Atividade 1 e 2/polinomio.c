@@ -27,6 +27,7 @@ solucao raizesPolinomio(polinomio p){
 	p_res.x1 = (-p.c1-rdelta)/(2*p.c2);
 	p_res.x2 = (-p.c1+rdelta)/(2*p.c2);
 	// CRIAR DEFESA
+	// (está na main)
 	return p_res;
 }
 
