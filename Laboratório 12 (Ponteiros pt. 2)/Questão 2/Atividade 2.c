@@ -1,17 +1,17 @@
 /*
-Crie um tipo de dados para representar uma Pessoa, mas agora, alÈm dos campos idade (inteiro)
-e peso (float), o campo nome (string) dever· ser um ponteiro de caractere.
-Implemente a funÁ„o main, onde um vetor de Pessoas com o total de posiÁıes que o usu·rio
-informar (m·ximo de 50) ser· alocado dinamicamente via ponteiro. O usu·rio dever· ent„o preencher o
+Crie um tipo de dados para representar uma Pessoa, mas agora, al√©m dos campos idade (inteiro)
+e peso (float), o campo nome (string) dever√° ser um ponteiro de caractere.
+Implemente a fun√ß√£o main, onde um vetor de Pessoas com o total de posi√ß√µes que o usu√°rio
+informar (m√°ximo de 50) ser√° alocado dinamicamente via ponteiro. O usu√°rio dever√° ent√£o preencher o
 vetor.
-Crie uma funÁ„o para ordenar esse vetor em ordem decrescente de idade e, de volta na main(),
-imprima na tela o vetor j· ordenado.
-Agora, apÛs a ordenaÁ„o, permita que o usu·rio insira uma idade na main(). Crie uma funÁ„o que
-receba de entrada o vetor j· ordenado e a idade informada, e ent„o realize uma busca bin·ria no vetor de
-Pessoas, retornando o Ìndice no vetor onde a pessoa possui a referida idade, ou -1 se ninguÈm for
-encontrado. No caso de duas ou mais pessoas com idades iguais, basta retornar um ˙nico Ìndice. Na
+Crie uma fun√ß√£o para ordenar esse vetor em ordem decrescente de idade e, de volta na main(),
+imprima na tela o vetor j√° ordenado.
+Agora, ap√≥s a ordena√ß√£o, permita que o usu√°rio insira uma idade na main(). Crie uma fun√ß√£o que
+receba de entrada o vetor j√° ordenado e a idade informada, e ent√£o realize uma busca bin√°ria no vetor de
+Pessoas, retornando o √≠ndice no vetor onde a pessoa possui a referida idade, ou -1 se ningu√©m for
+encontrado. No caso de duas ou mais pessoas com idades iguais, basta retornar um √∫nico √≠ndice. Na
 main, imprima o nome dessa pessoa.
-CUIDADO: o vetor est· em ordem decrescente. Sua busca bin·ria leva isso em conta!
+CUIDADO: o vetor est√° em ordem decrescente. Sua busca bin√°ria leva isso em conta!
 */
 
 #define TAM 50
@@ -30,7 +30,7 @@ typedef struct{
 
 bool checaArquivo(FILE *arquivo){
 	if(arquivo == NULL){
-		printf("N„o foi possÌvel abrir o arquivo.");
+		printf("N√£o foi poss√≠vel abrir o arquivo.");
 		return false;
 	}
 	return true;
@@ -66,6 +66,7 @@ int buscaBinariaDec(int idade[], int busca){
         else
             esq = meio + 1; 
     }
+	return -1; // N√£o encontrado.
 }
 
 int main(){
@@ -75,13 +76,13 @@ int main(){
 	for(int i = 0; i < TAM; ++i) // Aloca dinamicamente o nome do vetor de Pessoa.
 	Pessoa[i].nome = (char*) malloc(TAM_STR * sizeof(char));
 	
-	// DeclaraÁ„o e verificaÁ„o do arquivo:
+	// Declara√ß√£o e verifica√ß√£o do arquivo:
 	FILE *arquivo;
 	arquivo = fopen("Pessoas.txt", "r");
 	if(!checaArquivo(arquivo)) return -1;
 	
 	// Leitura do arquivo
-	for(int i = 0; i < TAM; ++i){ // Inicializa leitura, separada por espaÁos de nome, idade e peso
+	for(int i = 0; i < TAM; ++i){ // Inicializa leitura, separada por espa√ßos de nome, idade e peso
 		int j = 0;
 		while(j < TAM_STR){
 			fscanf(arquivo, "%c", &l);
@@ -96,18 +97,19 @@ int main(){
 	} 
 	fclose(arquivo); // Fechamento do arquivo.
 	
-	// Prosseguindo para a ordenaÁ„o decrescente
-	int idade[TAM]; // CriaÁ„o do vetor idade que recebe as idades da struct para ordenaÁ„o decrescente
+	// Prosseguindo para a ordena√ß√£o decrescente
+	int idade[TAM]; // Cria√ß√£o do vetor idade que recebe as idades da struct para ordena√ß√£o decrescente
 	for(int i = 0; i < TAM;++i) idade[i] = Pessoa[i].idade;
 	ordenaDec(idade);
 	
-	// Busca bin·ria da busca da idade
+	// Busca bin√°ria da busca da idade
 	int busca;
 	printf("Digite a idade a ser procurada: ");
 	scanf("%d", &busca);
 	printf("Nome da pessoa com %d anos de idade: %s", busca, Pessoa[buscaBinariaDec(idade,busca)].nome);
+	// Ser√° exibido -1 caso a idade n√£o seja encontrada.
 	
-	// LiberaÁ„o de memÛria dos nomes da struct (Pessoa[].nome)
+	// Libera√ß√£o de mem√≥ria dos nomes da struct (Pessoa[].nome)
 	for(int i = 0; i < TAM; ++i) free(Pessoa[i].nome);
 	
 	return 0;
