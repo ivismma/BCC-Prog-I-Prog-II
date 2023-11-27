@@ -1,12 +1,12 @@
 /*
-Quest„o 1) Implemente:
-a) Uma funÁ„o void que receba dois argumentos: o endereÁo de uma vari·vel do tipo int e um
-valor para inicializ·-la. A funÁ„o dever· atribuir o valor passado como segundo argumento para
-a vari·vel recebida como primeiro argumento. Na main(), imprimir a vari·vel.
+Quest√£o 1) Implemente:
+a) Uma fun√ß√£o void que receba dois argumentos: o endere√ßo de uma vari√°vel do tipo int e um
+valor para inicializ√°-la. A fun√ß√£o dever√° atribuir o valor passado como segundo argumento para
+a vari√°vel recebida como primeiro argumento. Na main(), imprimir a vari√°vel.
 
-b) Uma funÁ„o void que receba 4 par‚metros: dois ponteiros referentes a 2 vetores de inteiros
-(n„o necessariamente ordenados) e os respectivos tamanhos dos vetores. DaÌ, imprimir os
-valores em ordem crescente global, i.e, a ordem crescente apÛs a fus„o dos 2 vetores.
+b) Uma fun√ß√£o void que receba 4 par√¢metros: dois ponteiros referentes a 2 vetores de inteiros
+(n√£o necessariamente ordenados) e os respectivos tamanhos dos vetores. Da√≠, imprimir os
+valores em ordem crescente global, i.e, a ordem crescente ap√≥s a fus√£o dos 2 vetores.
 */
 
 #include <stdio.h>
@@ -26,10 +26,10 @@ void atribuiValor(int *var, int valor){
 void exibeVetOrdenado(int *v1, int tam1, int *v2, int tam2){
 	int tamTotal = tam1+tam2, i,
 	*vTotal = (int*) malloc(tamTotal * sizeof(int));
-	// Uni„o dos vetores ponteiros
+	// Uni√£o dos vetores ponteiros
 	for(i = 0; i < tam1; ++i) vTotal[i] = v1[i];
 	for(; i < tamTotal; ++i) vTotal[i] = v2[i-tam1];
-	// OrdenaÁ„o (Bubble)
+	// Ordena√ß√£o (Bubble)
 	bool ordenado = false; 
 	int fim = tamTotal; 
 	while (!ordenado) {
@@ -50,19 +50,19 @@ void exibeVetOrdenado(int *v1, int tam1, int *v2, int tam2){
 
 int main(){
 	// Item (a)
-	srand(time(NULL));
 	int inteiro;
 	
-	atribuiValor(&inteiro, 5); // N˙mero a ser atribuÌdo: 5.
+	atribuiValor(&inteiro, 5); // N√∫mero a ser atribu√≠do: 5.
 	printf("Item (a): %d\n", inteiro);
 	// Item (b)
-    int *vet1, *vet2;
+	srand(time(NULL));
+	int *vet1, *vet2;
     
 	vet1 = (int*) malloc(TAM_1 * sizeof(int));
-    vet2 = (int*) malloc(TAM_2 * sizeof(int));
-    for(int i = 0; i < TAM_1; ++i) vet1[i] = rand() % 11;
-    for(int i = 0; i < TAM_2; ++i) vet2[i] = rand() % 11;
-    printf("Item (b): ");
+	vet2 = (int*) malloc(TAM_2 * sizeof(int));
+	for(int i = 0; i < TAM_1; ++i) vet1[i] = rand() % 11;
+	for(int i = 0; i < TAM_2; ++i) vet2[i] = rand() % 11;
+	printf("Item (b): ");
 	exibeVetOrdenado(vet1, TAM_1, vet2, TAM_2);
 	free(vet1);
 	free(vet2);
