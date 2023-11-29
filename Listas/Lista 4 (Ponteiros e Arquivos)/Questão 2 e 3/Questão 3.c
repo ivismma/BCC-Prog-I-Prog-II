@@ -14,7 +14,7 @@ os valores desse arquivo e imprimir na tela o maior número encontrado.
 // Retorna o maior número de um vetor float.
 float vetMaior(float v[]){
 	float maior = v[0];
-	for(int i = 0;i < 10; ++i) if(v[i] > maior) maior = v[i];
+	for(int i = 1;i < 10; ++i) if(v[i] > maior) maior = v[i];
 	return maior;
 }
 
