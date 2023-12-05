@@ -1,5 +1,5 @@
 /*
-Quest„o 5) Escreva um programa que leia o arquivo gerado no exercÌcio anterior e exiba a matriz na
+Quest√£o 5) Escreva um programa que leia o arquivo gerado no exerc√≠cio anterior e exiba a matriz na
 tela.
 */
 
@@ -24,11 +24,13 @@ int main(){
 	arquivo = fopen("dados.dat", "rb");
 	if(!arquivo) return -1;
 	
-	// Leitura do arquivo bin·rio.
+	// Leitura do arquivo bin√°rio.
 	for(int i = 0; i < TAM; ++i)
 		for(int j = 0; j < TAM; ++j)
 			fread(&M[i][j], sizeof(float), 1, arquivo);
 			
 	fclose(arquivo);
 	exibir(M);
+
+	return 0;
 }
