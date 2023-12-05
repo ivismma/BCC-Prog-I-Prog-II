@@ -8,6 +8,6 @@ Matéria finalizada em 23/11/2023.
 
 Próximos assuntos a serem estudados no próximo período: 
 
-Conteúdo restante de Prog II: Mais ordenação (por inserção e por seleção), Estruturas de dados lineares: lista encadeada, pilhas e filas
-ICP116 - Estruturas de Dados.
+Conteúdo restante de Prog II: Mais ordenação (Insertion e Selection Sort), Estruturas de dados lineares: lista encadeada, pilhas e filas<br>
+ICP116 - Estruturas de Dados.<br>
 ICP239 - Programação Orientada a Objeto (POO).
