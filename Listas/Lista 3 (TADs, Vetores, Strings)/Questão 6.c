@@ -59,7 +59,7 @@ int main(){
 	int peso[TAM], pesoOrdenado[TAM];
 	
 	for(int i = 0;i < TAM;i++){
-		printf("Pessoa %d - Insira separado por espaço o nome, a peso e o peso, respectivamente: ", i+1);
+		printf("Pessoa %d - Insira separado por espaço o nome, a idade e o peso, respectivamente: ", i+1);
 		scanf("%s", pessoa[i].nome);
 		scanf("%d %d", &pessoa[i].idade, &pessoa[i].peso);
 	} preencheVetor(pessoa, peso);
