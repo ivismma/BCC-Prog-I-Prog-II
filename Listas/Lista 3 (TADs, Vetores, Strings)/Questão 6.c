@@ -1,22 +1,22 @@
-/*Quest„o 5) Assim como fizemos no LaboratÛrio 9, crie um tipo de dados para representar uma
-Pessoa, mas agora, alÈm dos campos idade (inteiro) e peso (float), inclua tambÈm o campo nome
-(string). Implemente a funÁ„o main, onde um vetor de Pessoas (m·ximo de 50) dever· ser preenchido
-pelo usu·rio. Ordene esse vetor em ordem decrescente de idade e imprima o vetor ordenado na tela.
-Crie essa lÛgica de ordenaÁ„o na prÛpria main.
-- Agora, modifique o programa como segue: apÛs a ordenaÁ„o do vetor, permita que o
-usu·rio insira uma idade. A partir daÌ, crie uma funÁ„o que receba de entrada o vetor ordenado e a
-idade informada, e ent„o realize uma busca bin·ria no vetor de Pessoas, retornando o Ìndice no vetor
-onde a pessoa possui a referida idade, ou -1 se ninguÈm for encontrado. No caso de duas ou mais
-pessoas com idades iguais, basta retornar um ˙nico Ìndice. Na main, imprima o nome dessa pessoa.
-CUIDADO: o vetor est· em ordem decrescente. Sua busca bin·ria leva isso em conta!*/
+/*Quest√£o 5) Assim como fizemos no Laborat√≥rio 9, crie um tipo de dados para representar uma
+Pessoa, mas agora, al√©m dos campos idade (inteiro) e peso (float), inclua tamb√©m o campo nome
+(string). Implemente a fun√ß√£o main, onde um vetor de Pessoas (m√°ximo de 50) dever√° ser preenchido
+pelo usu√°rio. Ordene esse vetor em ordem decrescente de idade e imprima o vetor ordenado na tela.
+Crie essa l√≥gica de ordena√ß√£o na pr√≥pria main.
+- Agora, modifique o programa como segue: ap√≥s a ordena√ß√£o do vetor, permita que o
+usu√°rio insira uma idade. A partir da√≠, crie uma fun√ß√£o que receba de entrada o vetor ordenado e a
+idade informada, e ent√£o realize uma busca bin√°ria no vetor de Pessoas, retornando o √≠ndice no vetor
+onde a pessoa possui a referida idade, ou -1 se ningu√©m for encontrado. No caso de duas ou mais
+pessoas com idades iguais, basta retornar um √∫nico √≠ndice. Na main, imprima o nome dessa pessoa.
+CUIDADO: o vetor est√° em ordem decrescente. Sua busca bin√°ria leva isso em conta!*/
 
-// ExercÌcio oriundo da quest„o 5, alterado para o enunciado da quest„o 6.
-// AlteraÁıes: Busca bin·ria e OrdenaÁ„o agora normais (crescente).
-// AlÈm disso, agora tratam-se do peso.
+// Exerc√≠cio oriundo da quest√£o 5, alterado para o enunciado da quest√£o 6.
+// Altera√ß√µes: Busca bin√°ria e Ordena√ß√£o agora normais (crescente).
+// Al√©m disso, agora tratam-se do peso.
 
 #include <stdio.h>
 #include <stdbool.h>
-#define TAM 3
+#define TAM 50
 #define FALSE 0
 #define TRUE 1
 
@@ -44,7 +44,7 @@ int copiaVetor(int v1[], int v2[]){
 	int n = (sizeof(v1)/sizeof(v1[0]))+1;
 	
 	if ( (sizeof(v2)/sizeof(v2[0]))+1 != n ){
-		printf("Erro - Vetores n„o possuem o mesmo tamanho.");
+		printf("Erro - Vetores n√£o possuem o mesmo tamanho.");
 		return FALSE;
 	}
 	
@@ -59,7 +59,7 @@ int main(){
 	int peso[TAM], pesoOrdenado[TAM];
 	
 	for(int i = 0;i < TAM;i++){
-		printf("Pessoa %d - Insira separado por espaÁo o nome, a peso e o peso, respectivamente: ", i+1);
+		printf("Pessoa %d - Insira separado por espa√ßo o nome, a peso e o peso, respectivamente: ", i+1);
 		scanf("%s", pessoa[i].nome);
 		scanf("%d %d", &pessoa[i].idade, &pessoa[i].peso);
 	} preencheVetor(pessoa, peso);
@@ -68,12 +68,12 @@ int main(){
 	exibirVetor(peso);
 	copiaVetor(peso, pesoOrdenado);
 	
-	// O exercÌcio pede para que a ordenaÁ„o e busca bin·ria seja feita na main.
+	// O exerc√≠cio pede para que a ordena√ß√£o e busca bin√°ria seja feita na main.
 	
-	// Bubble Sort | escopo criado para que a vari·vel i, aux, fim e ordenado deixe de ocupar memÛria depois.
+	// Bubble Sort | escopo criado para que a vari√°vel i, aux, fim e ordenado deixe de ocupar mem√≥ria depois.
 	{
 		int i, aux, fim = TAM;
-		bool ordenado; // o bool ordenado È uma flag.
+		bool ordenado; // o bool ordenado √© uma flag.
 		while(!ordenado){
 			ordenado = true;
 			for(i = 0;i < fim-1;++i){
@@ -91,10 +91,10 @@ int main(){
 	printf("\nPesos em ordem crescente:\n");
 	exibirVetor(pesoOrdenado);
 	
-	int busca, resultado = -1; // O resultado ser· iniciado como -1, se n„o for encontrada a idade, o valor j· est· prÈ definido.
-	printf("\nInsira uma idade para obter o indice (ser· retornado -1 caso ela n„o seja encontrada): ");
+	int busca, resultado = -1; // O resultado ser√° iniciado como -1, se n√£o for encontrada a idade, o valor j√° est√° pr√© definido.
+	printf("\nInsira uma idade para obter o indice (ser√° retornado -1 caso ela n√£o seja encontrada): ");
 	scanf("%d", &busca);
-	// Busca bin·ria:
+	// Busca bin√°ria:
 	{
 		int esq, meio, dir;
 	    esq = 0;
@@ -111,11 +111,11 @@ int main(){
 	        	dir = meio - 1;  
 	    }
 	}
-	// Vale lembrar que por se tratar de uma busca bin·ria, pode haver mais de uma pessoa com mesmo peso, ent„o
-	// ele retornar· o primeiro encontrado.
+	// Vale lembrar que por se tratar de uma busca bin√°ria, pode haver mais de uma pessoa com mesmo peso, ent√£o
+	// ele retornar√° o primeiro encontrado.
 	
 	if(resultado == -1){
-		printf("Idade n„o encontrada.");
+		printf("Idade n√£o encontrada.");
 		return -1;
 	} 
 	printf("\nIndice da idade inserida: %d", resultado);
