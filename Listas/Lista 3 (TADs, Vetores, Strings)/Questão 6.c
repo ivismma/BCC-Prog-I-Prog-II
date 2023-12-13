@@ -16,7 +16,7 @@ CUIDADO: o vetor está em ordem decrescente. Sua busca binária leva isso em con
 
 #include <stdio.h>
 #include <stdbool.h>
-#define TAM 50
+#define TAM 3
 #define FALSE 0
 #define TRUE 1
 
@@ -41,16 +41,8 @@ void exibirVetor(int v[]){
 // Ambos devem ter o mesmo tamanho.
 
 int copiaVetor(int v1[], int v2[]){
-	int n = (sizeof(v1)/sizeof(v1[0]))+1;
-	
-	if ( (sizeof(v2)/sizeof(v2[0]))+1 != n ){
-		printf("Erro - Vetores não possuem o mesmo tamanho.");
-		return FALSE;
-	}
-	
 	int i = 0;
-	while(i < n) 
-		v2[i++] = v1[i];
+	while(i < TAM) v2[i] = v1[i++];
 	return TRUE;
 }
 
@@ -59,7 +51,7 @@ int main(){
 	int peso[TAM], pesoOrdenado[TAM];
 	
 	for(int i = 0;i < TAM;i++){
-		printf("Pessoa %d - Insira separado por espaço o nome, a idade e o peso, respectivamente: ", i+1);
+		printf("Pessoa %d - Insira separado por espaço o nome, a peso e o peso, respectivamente: ", i+1);
 		scanf("%s", pessoa[i].nome);
 		scanf("%d %d", &pessoa[i].idade, &pessoa[i].peso);
 	} preencheVetor(pessoa, peso);
@@ -122,4 +114,3 @@ int main(){
 	printf("\nNome da pessoa: %s", pessoa[resultado].nome);
 	return 0;
 }
-
