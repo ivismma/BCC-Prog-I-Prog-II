@@ -44,8 +44,7 @@ int copiaVetor(int v1[], int v2[]){
 	}
 	
 	int i = 0;
-	while(i < n) 
-		v2[i++] = v1[i];
+	for(int i = 0; i < n;++i) v2[i] = v1[i];
 	return TRUE;
 }
 
@@ -64,7 +63,6 @@ int main(){
 	
 	/*Ordene esse vetor em ordem decrescente de idade e imprima o vetor ordenado na tela.
 	Crie essa lógica de ordenação na própria main.*/
-	// O exercício pede para que a ordenação decrescente e busca binária seja feita na main.
 	
 	// Usa vetor ordenado decrescentemente a parte para preservar os dados da idade.
 	copiaVetor(idade, idadeDec);
