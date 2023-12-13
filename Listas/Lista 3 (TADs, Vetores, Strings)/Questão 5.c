@@ -36,15 +36,8 @@ void exibirVetor(int v[]){
 // Recebe um vetor v1 e o copia em v2.
 // Ambos devem ter o mesmo tamanho.
 int copiaVetor(int v1[], int v2[]){
-	int n = (sizeof(v1)/sizeof(v1[0]))+1;
-	
-	if ( (sizeof(v2)/sizeof(v2[0]))+1 != n ){
-		printf("Erro - Vetores não possuem o mesmo tamanho.");
-		return FALSE;
-	}
-	
 	int i = 0;
-	for(int i = 0; i < n;++i) v2[i] = v1[i];
+	for(int i = 0; i < TAM;++i) v2[i] = v1[i];
 	return TRUE;
 }
 
