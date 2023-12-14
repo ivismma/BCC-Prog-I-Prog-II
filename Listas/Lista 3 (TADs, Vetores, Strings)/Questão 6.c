@@ -16,7 +16,7 @@ CUIDADO: o vetor está em ordem decrescente. Sua busca binária leva isso em con
 
 #include <stdio.h>
 #include <stdbool.h>
-#define TAM 3
+#define TAM 50
 #define FALSE 0
 #define TRUE 1
 
