@@ -73,7 +73,7 @@ bool checaCartas(Carta* p, int tam, int pontos){ // Parecido com a função q it
 
 void statusRodada(Carta* reveladas, int N){ // Mostra resultado final da rodada e o vencedor.
 	int maior = cartaPontos(&reveladas[0]),
-	i_pessoa, soma;
+	i_pessoa = 0, soma = 0;
 	
 	for(int i = 1; i < N;++i) // Loop p/ descobrir maior carta e quem a possui.
 		if(cartaPontos(&reveladas[i]) > maior){
