@@ -1,64 +1,72 @@
-/*Atividade 2: Uma operaÁ„o muito comum em computaÁ„o È a intercalaÁ„o de dois vetores que j·
-est„o ordenados. Considere um vetor A de tamanho N e outro B de tamanho M. O vetor resultante
-C È construÌdo a partir dos dois vetores originais e ter· tamanho N + M.
+/*Atividade 2: Uma opera√ß√£o muito comum em computa√ß√£o √© a intercala√ß√£o de dois vetores que j√°
+est√£o ordenados. Considere um vetor A de tamanho N e outro B de tamanho M. O vetor resultante
+C √© constru√≠do a partir dos dois vetores originais e ter√° tamanho N + M.
 Tarefa:
-1) Escreva uma funÁ„o que receba como entrada um par de vetores j· ordenados e seus
+1) Escreva uma fun√ß√£o que receba como entrada um par de vetores j√° ordenados e seus
 respectivos tamanhos, os intercale formando um novo vetor ordenado, e imprima o
 resultado.
 
-2) Escreva um programa para testar sua funÁ„o. Use o exemplo mostrado abaixo e outros que
-vocÍ mesmo pode criar.
-Obs.: explore o fato de que os vetores de entrada j· est„o ordenados. Simplificar· a
-implementaÁ„o da soluÁ„o.*/
+2) Escreva um programa para testar sua fun√ß√£o. Use o exemplo mostrado abaixo e outros que
+voc√™ mesmo pode criar.
+Obs.: explore o fato de que os vetores de entrada j√° est√£o ordenados. Simplificar√° a
+implementa√ß√£o da solu√ß√£o.*/
 
-#define FALSE 0
-#define TRUE 1
 #include <stdio.h>
-#include <limits.h>
+#include <stdlib.h>
 
-void exibirVetor (int v[], int tam){
-	for(int i = 0; i < tam; ++i) printf("%d ", v[i]);
-}
-
-void ordenaParVetores(int v1[],int v2[], int v3[],int tam[]){
-	int total = tam[0] + tam[1];
-	int i = 0, j = 0, k = 0;
-	while(i < total){
-		while(1){
-			if(v1[j] < v2[k]){
-				v3[i] = v1[j];
-				++j; ++i;
-				break;
-			} else{
-				v3[i] = v2[k];
-				++k; ++i;
-				break;
-			}
-		}
-	}
-}
+int *ordenaVetoresOrdenados(int *v1, int *v2, int tam1, int tam2);
+void exibirVetor (int *v, int tam);
 
 int main(){
-	int tam[2], i; // Vetor tam que armazena o tamanho do vetor 1 e vetor 2, respectivamente.
-	printf("Insira o tamanho do vetor 1 e 2, respectivamente (separado por espaÁo):\n");
+	int i;
+	int *pV1, *pV2, *pV3; // pV1 - Vetor 1 | pV2 - Vetor 2 | pV3 -> Vetores juntados e ordenados.
+	int tam[2]; // tam[0] - Tamanho Vetor 1 | tam[1] - Tamanho Vetor 2
 	
-	for(i=0;i < 2;++i){
-		scanf("%d", &tam[i]);
-	} int v1[tam[0]],v2[tam[1]]; // Uso do vetor tam para criar os vetores.
-	int tamTotal = tam[0] + tam[1];
-	int v3[tamTotal];
+	printf("Insira o tamanho do vetor 1 e 2, respectivamente (separado por espaco):\n");
+	for(i=0;i < 2;++i) scanf("%d", &tam[i]);
+	int tamTotal = tam[0]+tam[1];
 	
-	printf("Insira os elementos do vetor 1, separado por espaÁos (lembre-se do seu tamanho):\n");
-	for(i=0; i < tam[0]; ++i){
-		scanf("%d", &v1[i]);
-	}
-	printf("Insira os elementos do vetor 2, separado por espaÁos (lembre-se do seu tamanho):\n");
-	for(i=0; i < tam[1]; ++i){
-		scanf("%d", &v2[i]);
-	}
+	pV1 = (int*) calloc(tam[0], sizeof(int));
+	pV2 = (int*) calloc(tam[1], sizeof(int));
 	
-	ordenaParVetores(v1,v2,v3,tam);
-	printf("\n"); exibirVetor(v3,tamTotal);
+	printf("Obs: Inserir elementos ordenados\n");
+	printf("Elementos do vetor 1o vetor ordenado, separado por espacos:\n");
+	for(i=0; i < tam[0]; ++i) scanf("%d", &pV1[i]);
+
+	printf("Elementos do vetor 1o vetor ordenado, separado por espacos:\n");
+	for(i=0; i < tam[1]; ++i) scanf("%d", &pV2[i]);
+	
+	pV3 = ordenaVetoresOrdenados(pV1, pV2, tam[0], tam[1]);
+	free(pV1);
+	free(pV2);
+	exibirVetor(pV3,tamTotal);
+	free(pV3);
 	
 	return 0;
+}
+
+int *ordenaVetoresOrdenados(int *v1, int *v2, int tam1, int tam2){
+	int i = 0, j = 0, k = 0;
+	int *v3 = (int*) calloc(tam1+tam2, sizeof(int));
+	// Vetor resultado alocado.
+	
+	// Intercala√ß√£o de vetores.
+	while(i < tam1 && j < tam2)
+		if(v1[i] < v2[j])
+			v3[k++] = v1[i++];
+		else
+			v3[k++] = v2[j++];
+			
+	// Se uma lista for maior que a outra, v√™ qual √© preenche o resto do vetor ordenado:
+	if(i == tam1)
+		while(j < tam2) v3[k++] = v2[j++]; 
+	else if(j == tam2)
+		while(i < tam1) v3[k++] = v2[j++]; 
+	
+	return v3; // Retorna o ponteiro para o vetor ordenado alocado.
+}
+
+void exibirVetor (int *v, int tam){
+	printf("\n");
+	for(int i = 0; i < tam; ++i) printf("%d ", v[i]);
 }
