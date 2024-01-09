@@ -107,6 +107,7 @@ void ordenaStruct(Carta* p, int tam){
 	}
 }
 // Função do item (b) Obs: Não utilizei.
+/*
 int possivel(Carta intencao, Carta reveladas[], int t){
 	int ini = 0, meio, fim = t-1;
 	pontos = cartaPontos(&intencao);
@@ -121,8 +122,11 @@ int possivel(Carta intencao, Carta reveladas[], int t){
 	return 1; // Pontuação disponível.
 }
 
-// Outra maneira de salvar pontuações já reveladas (criar vetor a parte).
-/*bool addVetor(int *v, int tam, Carta carta){
+
+
+
+Outra maneira de salvar pontuações já reveladas (criar vetor a parte):
+bool addVetor(int *v, int tam, Carta carta){
 	static int cont = 0;
 	for(int i = 0; i < cont;++i)
 		if(v[cont] == carta->numero)
