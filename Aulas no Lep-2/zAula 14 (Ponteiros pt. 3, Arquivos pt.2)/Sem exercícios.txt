@@ -5,6 +5,3 @@ Requisitos cumpridos para puxar:
 - ICP239 - POO
 - ICP237 - Modelagem de Sistemas
 - ICP246 - Arquitet Comput e Sist Operac
-
-Obs: Complementar estudo em Prog II na turma 2024.1 Assuntos restantes: Pilha, Fila, Lista encadeada,
-Ordenações Insertion, Selection, Complexidade de algoritmos.
