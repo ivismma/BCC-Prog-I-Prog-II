@@ -1,6 +1,6 @@
-# CMT012-Instituto de Computação - UFRJ
+# CMT012/Prog I + Prog II - Instituto de Computação - UFRJ
 
-Repositório do material, questões e resoluções de Introdução à Programação C, que avança em mais conteúdos de Algoritmos de Programação como recursão, structs (TADs), ordenação, ponteiros, alocação dinâmica, arquivos e assuntos pré-estrutura de dados (do 3º período).
+Repositório do material, questões e resoluções de Introdução à Programação C, que engloba Prog I e Prog II.
 
 CMT012 (Programação de Computadores I + Programação de Computadores II) - ICP131 + ICP141.<br>
 Matéria finalizada em 23/11/2023.
