@@ -5,11 +5,3 @@ Alguns materiais de Prog II não cobertos por CMT012 estão no repositório.
 
 CMT012 (Programação de Computadores I + Programação de Computadores II) - ICP131 + ICP141.<br>
 Matéria finalizada em 23/11/2023.
-
-Próximos assuntos que procedem no fluxograma: 
-
-ICP143 - Projeto Prático (Arduino e C++?)<br>
-ICP116 - Estruturas de Dados.<br>
-ICP239 - Programação Orientada a Objeto (POO)<br>
-ICP237 - Modelagem de Sistemas<br>
-ICP246 - ArqCompSO<br>
