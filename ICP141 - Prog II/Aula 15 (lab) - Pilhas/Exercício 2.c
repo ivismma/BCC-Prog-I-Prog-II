@@ -5,14 +5,15 @@
 /*
 Ex. 2
 
-FaÁa um programa que calcule o resultado de uma express„o em notaÁ„o 
-pÛs-fixada, recebida atravÈs de um arquivo texto, utilizando uma pilha.
+Fa√ßa um programa que calcule o resultado de uma express√£o em nota√ß√£o 
+p√≥s-fixada, recebida atrav√©s de um arquivo texto, utilizando uma pilha.
 
-Considere que os operandos e resultados das operaÁıes realizadas s„o todos
+Considere que os operandos e resultados das opera√ß√µes realizadas s√£o todos
 inteiros.
+(Uma calculadora de nota√ß√£o polonesa inversa)
 */
 
-// nÛ
+// n√≥
 typedef struct node{
 	double num;
 	struct node *prox;
